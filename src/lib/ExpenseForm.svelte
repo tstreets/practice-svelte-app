@@ -12,6 +12,7 @@
 
 	function submitExpense() {
 		afterSubmit(expenseData);
+		toggleExpenseForm();
 	}
 </script>
 
@@ -19,7 +20,13 @@
 	<div class="modal-background" on:mousedown={toggleExpenseForm} />
 	<div class="modal-card">
 		<header class="modal-card-head">
-			<p class="modal-card-title">New Expense</p>
+			<p class="modal-card-title">
+				{#if !expenseData.id}
+					New Expense
+				{:else}
+					Edit Expense #{expenseData.id}
+				{/if}
+			</p>
 			<button class="delete" aria-label="close" on:click={toggleExpenseForm} />
 		</header>
 		<section class="modal-card-body">
@@ -71,7 +78,13 @@
 			</form>
 		</section>
 		<footer class="modal-card-foot">
-			<button form="expense-form" class="button is-success" type="submit">Add Expense</button>
+			<button form="expense-form" class="button is-success" type="submit">
+				{#if !expenseData.id}
+					Add Expense
+				{:else}
+					Save Changes
+				{/if}
+			</button>
 			<button class="button" on:click={toggleExpenseForm}>Cancel</button>
 		</footer>
 	</div>

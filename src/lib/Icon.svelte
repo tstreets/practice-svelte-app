@@ -10,7 +10,8 @@
 		check: 'fa-solid fa-check',
 		x: 'fa-solid fa-x',
 		'x circle': 'fa-regular fa-circle-xmark',
-		'x circle solid': 'fa-solid fa-circle-xmark'
+		'x circle solid': 'fa-solid fa-circle-xmark',
+		edit: 'fa-solid fa-pencil'
 	};
 
 	export let style = '';
